@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="email_template_pin_code" model="mail.template">
+        <field name="name">Airbnb Manda - Code PIN accès chambre</field>
+        <field name="model_id" ref="model_manda_reservation"/>
+        <field name="subject">🔑 Votre code d'accès - Chambre {{ object.room_number }} - {{ object.reference }}</field>
+        <field name="email_to">{{ object.partner_email }}</field>
+        <field name="body_html"><![CDATA[
+<div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;">
+    <div style="background:#2c3e50;padding:30px;text-align:center;">
+        <h1 style="color:white;margin:0;">MandaBar</h1>
+    </div>
+    <div style="padding:30px;background:#f9f9f9;">
+        <p>Bonjour <strong>{{ object.partner_id.name }}</strong>,</p>
+        <p>Votre réservation est confirmée. Voici vos informations d'accès :</p>
+        <div style="background:white;border:2px solid #3498db;border-radius:10px;padding:25px;text-align:center;margin:20px 0;">
+            <p style="font-size:16px;color:#7f8c8d;margin:0 0 10px;">Numéro de chambre</p>
+            <p style="font-size:48px;font-weight:bold;color:#2c3e50;margin:0;">{{ object.room_number }}</p>
+        </div>
+        <div style="background:#3498db;border-radius:10px;padding:25px;text-align:center;margin:20px 0;">
+            <p style="font-size:16px;color:white;margin:0 0 10px;">Votre code PIN d'accès</p>
+            <p style="font-size:48px;font-weight:bold;color:white;letter-spacing:10px;margin:0;">{{ object.pin_code }}</p>
+        </div>
+        <table style="width:100%;border-collapse:collapse;margin:20px 0;">
+            <tr style="background:#ecf0f1;"><td style="padding:12px;font-weight:bold;">📅 Arrivée</td><td style="padding:12px;">{{ object.checkin_date }}</td></tr>
+            <tr><td style="padding:12px;font-weight:bold;">📅 Départ</td><td style="padding:12px;">{{ object.checkout_date }}</td></tr>
+            <tr style="background:#ecf0f1;"><td style="padding:12px;font-weight:bold;">🌙 Durée</td><td style="padding:12px;">{{ object.duration_nights }} nuit(s)</td></tr>
+            <tr><td style="padding:12px;font-weight:bold;">💰 Montant</td><td style="padding:12px;">{{ object.amount_total }} €</td></tr>
+        </table>
+        {% if object.bank_account %}
+        <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:5px;padding:15px;margin:20px 0;">
+            <p style="font-weight:bold;margin:0 0 5px;">💳 Virement bancaire</p>
+            <p style="margin:0;">IBAN : <strong>{{ object.bank_account }}</strong></p>
+            <p style="margin:5px 0 0;">Référence : <strong>{{ object.reference }}</strong></p>
+        </div>
+        {% endif %}
+    </div>
+    <div style="background:#2c3e50;padding:20px;text-align:center;">
+        <p style="color:#bdc3c7;margin:0;font-size:12px;">MandaBar | fankepa.com</p>
+    </div>
+</div>
+        ]]></field>
+    </record>
+</odoo>

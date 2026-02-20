@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_manda_room,manda.room,model_manda_room,base.group_user,1,1,1,1
+access_manda_reservation,manda.reservation,model_manda_reservation,base.group_user,1,1,1,1
+access_manda_lock,manda.lock,model_manda_lock,base.group_user,1,1,1,1
+access_manda_settings,manda.settings,model_manda_settings,base.group_system,1,1,1,1

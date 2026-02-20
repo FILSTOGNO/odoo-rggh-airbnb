@@ -1,0 +1,22 @@
+{
+    'name': 'Airbnb_Manda - Gestion Accès UniFi',
+    'version': '19.0.1.0.0',
+    'summary': 'Gestion des réservations et accès aux chambres via serrures UniFi',
+    'author': 'Angelbert',
+#    'website': 'https://lamanda.be',
+    'category': 'Gestion immobilière',
+    'depends': ['base', 'mail', 'sale'],
+    'data': [
+        'security/ir.model.access.csv',
+        'data/mail_template_pin.xml',
+        'views/manda_settings_views.xml',
+        'views/manda_room_views.xml',
+        'views/manda_reservation_views.xml',
+        'views/manda_lock_views.xml',
+        'views/manda_menu.xml',
+    ],
+    'installable': True,
+    'application': True,
+    'auto_install': False,
+    'license': 'LGPL-3',
+}

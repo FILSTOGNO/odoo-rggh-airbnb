@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_manda_reservation_list" model="ir.ui.view">
+        <field name="name">manda.reservation.list</field>
+        <field name="model">manda.reservation</field>
+        <field name="arch" type="xml">
+            <list string="Réservations" decoration-success="state == 'checked_in'" decoration-muted="state in ('checked_out', 'cancelled')">
+                <field name="reference"/>
+                <field name="partner_id"/>
+                <field name="room_id"/>
+                <field name="checkin_date"/>
+                <field name="checkout_date"/>
+                <field name="duration_nights"/>
+                <field name="amount_total"/>
+                <field name="pin_code"/>
+                <field name="pin_sent" widget="boolean_toggle"/>
+                <field name="payment_state" widget="badge" decoration-success="payment_state == 'paid'" decoration-warning="payment_state == 'pending'"/>
+                <field name="state" widget="badge" decoration-info="state == 'confirmed'" decoration-success="state == 'checked_in'" decoration-muted="state == 'checked_out'"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_manda_reservation_form" model="ir.ui.view">
+        <field name="name">manda.reservation.form</field>
+        <field name="model">manda.reservation</field>
+        <field name="arch" type="xml">
+            <form string="Réservation">
+                <header>
+                    <button name="action_confirm" string="Confirmer" type="object" class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_checkin" string="Check-in" type="object" class="btn-primary" invisible="state != 'confirmed'"/>
+                    <button name="action_checkout" string="Check-out" type="object" invisible="state != 'checked_in'"/>
+                    <button name="action_send_pin_email" string="Renvoyer PIN" type="object" invisible="state == 'draft'"/>
+                    <button name="action_cancel" string="Annuler" type="object" invisible="state in ('checked_out', 'cancelled')"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,checked_in,checked_out"/>
+                </header>
+                <sheet>
+                    <div class="oe_title"><h1><field name="reference" readonly="1"/></h1></div>
+                    <group>
+                        <group string="Client">
+                            <field name="partner_id"/>
+                            <field name="partner_email"/>
+                            <field name="partner_phone"/>
+                        </group>
+                        <group string="Chambre">
+                            <field name="room_id"/>
+                            <field name="room_number"/>
+                            <field name="lock_id"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Dates">
+                            <field name="checkin_date"/>
+                            <field name="checkout_date"/>
+                            <field name="duration_nights"/>
+                        </group>
+                        <group string="Paiement">
+                            <field name="amount_total"/>
+                            <field name="payment_state" widget="badge"/>
+                            <field name="bank_account" readonly="1"/>
+                        </group>
+                    </group>
+                    <group string="🔑 Code d'accès PIN">
+                        <group>
+                            <field name="pin_code" readonly="1"/>
+                            <field name="pin_sent" readonly="1"/>
+                            <field name="unifi_user_id" readonly="1"/>
+                        </group>
+                    </group>
+                    <group string="Notes">
+                        <field name="notes" nolabel="1"/>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="action_manda_reservation" model="ir.actions.act_window">
+        <field name="name">Réservations</field>
+        <field name="res_model">manda.reservation</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <record id="seq_manda_reservation" model="ir.sequence">
+        <field name="name">Réservation MandaBar</field>
+        <field name="code">manda.reservation</field>
+        <field name="prefix">MANDA-</field>
+        <field name="padding">4</field>
+        <field name="number_next">1</field>
+        <field name="number_increment">1</field>
+    </record>
+</odoo>

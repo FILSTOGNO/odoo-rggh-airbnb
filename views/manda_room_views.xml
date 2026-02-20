@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_manda_room_list" model="ir.ui.view">
+        <field name="name">manda.room.list</field>
+        <field name="model">manda.room</field>
+        <field name="arch" type="xml">
+            <list string="Chambres">
+                <field name="number"/>
+                <field name="name"/>
+                <field name="price_per_night"/>
+                <field name="lock_id"/>
+                <field name="state" widget="badge" decoration-success="state == 'available'" decoration-danger="state == 'occupied'" decoration-warning="state == 'maintenance'"/>
+                <field name="reservation_count"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_manda_room_form" model="ir.ui.view">
+        <field name="name">manda.room.form</field>
+        <field name="model">manda.room</field>
+        <field name="arch" type="xml">
+            <form string="Chambre">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name" placeholder="Chambre 1..."/></h1>
+                    </div>
+                    <group>
+                        <group string="Informations">
+                            <field name="number"/>
+                            <field name="price_per_night"/>
+                            <field name="state" widget="badge"/>
+                            <field name="active"/>
+                        </group>
+                        <group string="Serrure UniFi">
+                            <field name="lock_id"/>
+                        </group>
+                    </group>
+                    <group string="Description">
+                        <field name="description" nolabel="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_manda_room" model="ir.actions.act_window">
+        <field name="name">Chambres</field>
+        <field name="res_model">manda.room</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>
