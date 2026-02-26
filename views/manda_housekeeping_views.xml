@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_manda_housekeeping_list" model="ir.ui.view">
+        <field name="name">manda.housekeeping.list</field>
+        <field name="model">manda.housekeeping</field>
+        <field name="arch" type="xml">
+            <list string="Tâches Ménage" decoration-danger="state == 'todo'"
+                  decoration-warning="state == 'in_progress'"
+                  decoration-success="state == 'done'">
+                <field name="scheduled_date"/>
+                <field name="room_id"/>
+                <field name="name"/>
+                <field name="task_type" widget="badge"/>
+                <field name="assigned_to"/>
+                <field name="state" widget="badge"
+                    decoration-danger="state == 'todo'"
+                    decoration-warning="state == 'in_progress'"
+                    decoration-success="state == 'done'"/>
+                <button name="action_start" type="object" string="Démarrer"
+                    invisible="state != 'todo'" class="btn-warning btn-sm"/>
+                <button name="action_done" type="object" string="Terminé"
+                    invisible="state != 'in_progress'" class="btn-success btn-sm"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_manda_housekeeping_calendar" model="ir.ui.view">
+        <field name="name">manda.housekeeping.calendar</field>
+        <field name="model">manda.housekeeping</field>
+        <field name="arch" type="xml">
+            <calendar string="Planning Ménage" date_start="scheduled_date"
+                      color="room_id" mode="day" quick_create="False">
+                <field name="room_id"/>
+                <field name="state"/>
+                <field name="assigned_to"/>
+            </calendar>
+        </field>
+    </record>
+
+    <record id="action_manda_housekeeping" model="ir.actions.act_window">
+        <field name="name">Tâches Ménage</field>
+        <field name="res_model">manda.housekeeping</field>
+        <field name="view_mode">list,calendar,form</field>
+    </record>
+</odoo>

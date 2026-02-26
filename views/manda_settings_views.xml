@@ -6,41 +6,53 @@
         <field name="arch" type="xml">
             <form string="Configuration MandaBar">
                 <sheet>
-                    <div class="oe_title"><h1>Configuration MandaBar</h1></div>
-                    <group string="🔐 UniFi Access API">
+                    <h1>Configuration MandaBar</h1>
+                    <group string="🔒 UNIFI ACCESS API">
                         <group>
-                            <field name="unifi_api_token" password="True" placeholder="Token API UniFi..."/>
-                            <field name="unifi_hub_ip" placeholder="172.18.244.225"/>
+                            <field name="unifi_api_token" placeholder="Token API UniFi..."/>
+                            <field name="unifi_hub_ip"/>
                         </group>
                         <group>
-                            <field name="unifi_switch_ip" placeholder="172.30.69.254"/>
-                            <field name="unifi_switch2_ip" placeholder="172.30.69.80"/>
+                            <field name="unifi_switch_ip"/>
+                            <field name="unifi_switch2_ip"/>
                         </group>
                     </group>
-                    <group string="🏦 Compte Bancaire">
+                    <group string="🏨 BEDS24">
+                        <group>
+                            <field name="beds24_api_key" placeholder="Clé API Beds24..."/>
+                            <field name="beds24_sync_enabled"/>
+                        </group>
+                        <group>
+                            <field name="beds24_refresh_token" placeholder="Refresh token..."/>
+                            <field name="beds24_last_sync" readonly="1"/>
+                        </group>
+                    </group>
+                    <group string="🏦 COMPTE BANCAIRE">
                         <group>
                             <field name="bank_account" placeholder="BE00 0000 0000 0000"/>
-                            <field name="bank_bic" placeholder="GEBABEBB"/>
-                        </group>
-                        <group>
                             <field name="bank_name" placeholder="BNP Paribas Fortis"/>
                         </group>
+                        <group>
+                            <field name="bank_bic" placeholder="GEBABEBB"/>
+                        </group>
                     </group>
-                    <group string="📧 Email et PIN">
+                    <group string="📧 EMAIL ET PIN">
                         <group>
                             <field name="email_from" placeholder="noreply@fankepa.com"/>
                             <field name="pin_length"/>
                         </group>
                         <group>
                             <field name="auto_send_pin"/>
+                            <field name="auto_invoice"/>
                         </group>
                     </group>
                 </sheet>
             </form>
         </field>
     </record>
+
     <record id="action_manda_settings" model="ir.actions.act_window">
-        <field name="name">Configuration</field>
+        <field name="name">Paramètres</field>
         <field name="res_model">manda.settings</field>
         <field name="view_mode">form</field>
         <field name="target">current</field>

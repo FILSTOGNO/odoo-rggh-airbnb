@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_manda_beds24_form" model="ir.ui.view">
+        <field name="name">manda.beds24.form</field>
+        <field name="model">manda.beds24</field>
+        <field name="arch" type="xml">
+            <form string="Synchronisation Beds24">
+                <sheet>
+                    <h2>Synchronisation Beds24</h2>
+                    <p class="text-muted">
+                        Beds24 est le centre de pilotage: il synchronise Airbnb, Booking.com et les réservations directes.
+                        Configurez d'abord votre clé API dans Paramètres → Beds24.
+                    </p>
+                    <group>
+                        <field name="last_sync" readonly="1"/>
+                        <field name="sync_status" readonly="1"/>
+                        <field name="bookings_synced" readonly="1"/>
+                    </group>
+                    <footer>
+                        <button name="action_test_connection" type="object"
+                            string="Tester connexion Beds24" class="btn-secondary"/>
+                        <button name="action_sync_bookings" type="object"
+                            string="Synchroniser maintenant" class="btn-primary"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_manda_beds24" model="ir.actions.act_window">
+        <field name="name">Synchronisation Beds24</field>
+        <field name="res_model">manda.beds24</field>
+        <field name="view_mode">form</field>
+        <field name="target">current</field>
+    </record>
+</odoo>

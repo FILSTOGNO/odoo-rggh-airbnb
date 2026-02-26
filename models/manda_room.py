@@ -1,24 +1,39 @@
-from odoo import models, fields
+from odoo import models, fields, api
 
 class MandaRoom(models.Model):
     _name = 'manda.room'
-    _description = 'Chambre Airbnb MandaBar'
+    _description = 'Chambre MandaBar'
     _rec_name = 'name'
+    _order = 'number'
 
     name = fields.Char(string='Nom de la chambre', required=True)
-    number = fields.Integer(string='Numéro de chambre', required=True)
+    number = fields.Integer(string='Numéro', required=True)
     description = fields.Text(string='Description')
+    capacity = fields.Integer(string='Capacité (personnes)', default=2)
     price_per_night = fields.Float(string='Prix par nuit (€)')
-    active = fields.Boolean(string='Active', default=True)
-    lock_id = fields.Many2one('manda.lock', string='Serrure assignée')
-    reservation_ids = fields.One2many('manda.reservation', 'room_id', string='Réservations')
-    reservation_count = fields.Integer(string='Nombre de réservations', compute='_compute_reservation_count')
     state = fields.Selection([
         ('available', 'Disponible'),
         ('occupied', 'Occupée'),
+        ('cleaning', 'En nettoyage'),
         ('maintenance', 'Maintenance'),
     ], string='État', default='available')
+    lock_id = fields.Many2one('manda.lock', string='Serrure UniFi')
+    beds24_room_id = fields.Char(string='ID Chambre Beds24')
+    reservation_ids = fields.One2many('manda.reservation', 'room_id', string='Réservations')
+    reservation_count = fields.Integer(compute='_compute_counts')
+    color = fields.Integer(string='Couleur', default=0)
 
-    def _compute_reservation_count(self):
-        for room in self:
-            room.reservation_count = len(room.reservation_ids)
+    @api.depends('reservation_ids')
+    def _compute_counts(self):
+        for rec in self:
+            rec.reservation_count = len(rec.reservation_ids)
+
+    def action_view_reservations(self):
+        return {
+            'type': 'ir.actions.act_window',
+            'name': f'Réservations - {self.name}',
+            'res_model': 'manda.reservation',
+            'view_mode': 'list,form,calendar',
+            'domain': [('room_id', '=', self.id)],
+            'context': {'default_room_id': self.id},
+        }

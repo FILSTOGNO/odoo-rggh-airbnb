@@ -1,9 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <menuitem id="menu_airbnb_manda_root" name="Airbnb Manda" sequence="50"/>
-    <menuitem id="menu_manda_reservation" name="Réservations" parent="menu_airbnb_manda_root" action="action_manda_reservation" sequence="10"/>
-    <menuitem id="menu_manda_room" name="Chambres" parent="menu_airbnb_manda_root" action="action_manda_room" sequence="20"/>
-    <menuitem id="menu_manda_config" name="Configuration" parent="menu_airbnb_manda_root" sequence="90"/>
-    <menuitem id="menu_manda_lock" name="Serrures UniFi" parent="menu_manda_config" action="action_manda_lock" sequence="10"/>
-    <menuitem id="menu_manda_settings" name="Paramètres" parent="menu_manda_config" action="action_manda_settings" sequence="20"/>
+    <menuitem id="menu_manda_root" name="Airbnb Manda" sequence="10"
+              web_icon="airbnb_manda,static/src/icon.png"/>
+
+    <menuitem id="menu_manda_reservations" name="Réservations"
+              parent="menu_manda_root" action="action_manda_reservation" sequence="10"/>
+
+    <menuitem id="menu_manda_rooms" name="Chambres"
+              parent="menu_manda_root" action="action_manda_room" sequence="20"/>
+
+    <menuitem id="menu_manda_housekeeping" name="Ménage"
+              parent="menu_manda_root" action="action_manda_housekeeping" sequence="30"/>
+
+    <menuitem id="menu_manda_config" name="Configuration"
+              parent="menu_manda_root" sequence="90"/>
+
+    <menuitem id="menu_manda_settings" name="Paramètres"
+              parent="menu_manda_config" action="action_manda_settings" sequence="10"/>
+
+    <menuitem id="menu_manda_locks" name="Serrures UniFi"
+              parent="menu_manda_config" action="action_manda_lock" sequence="20"/>
+
+    <menuitem id="menu_manda_beds24" name="Beds24"
+              parent="menu_manda_config" action="action_manda_beds24" sequence="30"/>
 </odoo>

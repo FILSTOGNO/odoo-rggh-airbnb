@@ -1,22 +1,30 @@
 {
-    'name': 'Airbnb_Manda - Gestion Accès UniFi',
-    'version': '19.0.1.0.0',
-    'summary': 'Gestion des réservations et accès aux chambres via serrures UniFi',
+    'name': 'Airbnb Manda - Gestion des Accès',
+    'version': '19.0.2.0.0',
+    'category': 'Property Management',
+    'summary': 'Gestion réservations Airbnb avec serrures UniFi Access',
+    'description': '''
+        Module de gestion des réservations MandaBar:
+        - Synchronisation Beds24 (Airbnb/Booking/Direct)
+        - Gestion des accès UniFi (codes PIN)
+        - Planning par chambre
+        - Facturation automatique
+        - Tâches ménage automatiques
+    ''',
     'author': 'Angelbert',
-#    'website': 'https://lamanda.be',
-    'category': 'Gestion immobilière',
-    'depends': ['base', 'mail', 'sale'],
+    'depends': ['base', 'mail', 'account', 'project'],
     'data': [
         'security/ir.model.access.csv',
         'data/mail_template_pin.xml',
         'views/manda_settings_views.xml',
         'views/manda_room_views.xml',
-        'views/manda_reservation_views.xml',
         'views/manda_lock_views.xml',
+        'views/manda_reservation_views.xml',
+        'views/manda_housekeeping_views.xml',
+        'views/manda_beds24_views.xml',
         'views/manda_menu.xml',
     ],
+    'license': 'LGPL-3',
     'installable': True,
     'application': True,
-    'auto_install': False,
-    'license': 'LGPL-3',
 }
