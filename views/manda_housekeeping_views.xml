@@ -20,6 +20,8 @@
                     invisible="state != 'todo'" class="btn-warning btn-sm"/>
                 <button name="action_done" type="object" string="Terminé"
                     invisible="state != 'in_progress'" class="btn-success btn-sm"/>
+                <button name="action_resend_pin" type="object" string="Renvoyer PIN"
+                    invisible="state == 'done'" class="btn-warning btn-sm"/>
             </list>
         </field>
     </record>

@@ -2,7 +2,7 @@ from odoo import models, fields, api
 
 class MandaRoom(models.Model):
     _name = 'manda.room'
-    _description = 'Chambre MandaBar'
+    _description = 'Chambre Airbnb_Manda'
     _rec_name = 'name'
     _order = 'number'
 
@@ -19,6 +19,7 @@ class MandaRoom(models.Model):
     ], string='État', default='available')
     lock_id = fields.Many2one('manda.lock', string='Serrure UniFi')
     beds24_room_id = fields.Char(string='ID Chambre Beds24')
+    default_housekeeper_id = fields.Many2one('res.users', string='Menagere par defaut')
     reservation_ids = fields.One2many('manda.reservation', 'room_id', string='Réservations')
     reservation_count = fields.Integer(compute='_compute_counts')
     color = fields.Integer(string='Couleur', default=0)

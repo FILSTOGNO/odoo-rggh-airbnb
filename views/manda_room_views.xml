@@ -41,6 +41,7 @@
                             <field name="state"/>
                             <field name="lock_id"/>
                             <field name="beds24_room_id"/>
+                            <field name="default_housekeeper_id"/>
                         </group>
                     </group>
                     <field name="description" placeholder="Description de la chambre..."/>

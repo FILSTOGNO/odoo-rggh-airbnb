@@ -23,6 +23,7 @@
         'views/manda_housekeeping_views.xml',
         'views/manda_beds24_views.xml',
         'views/manda_menu.xml',
+        'data/manda_cron.xml',
     ],
     'license': 'LGPL-3',
     'installable': True,

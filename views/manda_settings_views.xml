@@ -30,7 +30,7 @@
                     <group string="🏦 COMPTE BANCAIRE">
                         <group>
                             <field name="bank_account" placeholder="BE00 0000 0000 0000"/>
-                            <field name="bank_name" placeholder="BNP Paribas Fortis"/>
+                            <field name="bank_name" placeholder="BNP, ING, Belfius"/>
                         </group>
                         <group>
                             <field name="bank_bic" placeholder="GEBABEBB"/>
@@ -38,7 +38,7 @@
                     </group>
                     <group string="📧 EMAIL ET PIN">
                         <group>
-                            <field name="email_from" placeholder="noreply@fankepa.com"/>
+                            <field name="email_from" placeholder="noreply@manda.com"/>
                             <field name="pin_length"/>
                         </group>
                         <group>

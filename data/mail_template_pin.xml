@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <record id="seq_manda_reservation" model="ir.sequence">
-        <field name="name">Réservation MandaBar</field>
+        <field name="name">Réservation Airbnb_Manda</field>
         <field name="code">manda.reservation</field>
-        <field name="prefix">MANDA-</field>
+        <field name="prefix">Airbnb_Manda-</field>
         <field name="padding">4</field>
         <field name="number_next">1</field>
         <field name="number_increment">1</field>

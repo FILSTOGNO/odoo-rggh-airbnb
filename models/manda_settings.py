@@ -2,15 +2,15 @@ from odoo import models, fields, api
 
 class MandaSettings(models.Model):
     _name = 'manda.settings'
-    _description = 'Configuration MandaBar'
+    _description = 'Configuration Airbnb_Manda'
     _rec_name = 'name'
 
-    name = fields.Char(default='Configuration MandaBar', readonly=True)
+    name = fields.Char(default='Configuration Airbnb_Manda', readonly=True)
 
     # UniFi Access
     unifi_api_token = fields.Char(string='Token API UniFi')
-    unifi_hub_ip = fields.Char(string='IP Enterprise Access Hub', default='172.18.244.254')
-    unifi_switch_ip = fields.Char(string='IP Switch principal (USW-01)', default='172.18.244.254')
+    unifi_hub_ip = fields.Char(string='IP Gateway VLAN MANDA-Porte', default='172.18.244.254')
+    unifi_switch_ip = fields.Char(string='IP Switch principal (USW-01)', default='172.30.69.254')
     unifi_switch2_ip = fields.Char(string='IP Switch secondaire (USW-02)', default='172.30.69.80')
 
     # Beds24
@@ -37,5 +37,5 @@ class MandaSettings(models.Model):
     def get_settings(self):
         settings = self.search([], limit=1)
         if not settings:
-            settings = self.create({'name': 'Configuration MandaBar'})
+            settings = self.create({'name': 'Configuration Airbnb_Manda'})
         return settings
