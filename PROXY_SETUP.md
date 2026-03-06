@@ -132,7 +132,7 @@ ExecStart=/usr/bin/ssh -N \
   -o ServerAliveCountMax=3 \
   -o StrictHostKeyChecking=no \
   -i /home/angelbert/.ssh/id_ed25519 \
-  openerp@vps213949.ovh.net
+  openerp@vps213949....             # openerp@vps213949.... est le serveur odoo sur lequel ce trouve le modul API
 Restart=always
 RestartSec=15
 ```
