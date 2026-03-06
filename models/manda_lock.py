@@ -14,7 +14,7 @@ class MandaLock(models.Model):
     door_id = fields.Char(string='ID Porte UniFi', required=True)
     access_policy_id = fields.Char(
         string='Access Policy ID',
-        default='d1596c28-eba2-4dc9-89e0-ed10f115682f'
+        default='d1596c28-.................682f'
     )
     active = fields.Boolean(default=True)
     room_id = fields.One2many('manda.room', 'lock_id', string='Chambre')
@@ -23,7 +23,7 @@ class MandaLock(models.Model):
         settings = self.env['manda.settings'].get_settings()
         if not settings or not settings.unifi_hub_ip:
             raise exceptions.UserError("IP du hub UniFi non configuree.")
-        return f"https://{settings.unifi_hub_ip}:12445"
+        return f"http://{settings.unifi_hub_ip}:12445"
 
     def _get_headers(self):
         settings = self.env['manda.settings'].get_settings()

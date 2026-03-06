@@ -174,7 +174,7 @@ class MandaReservation(models.Model):
         if assigned_user:
             task.action_start()
             _logger.info(f"PIN menagere envoye automatiquement a {assigned_user.email}")
-        
+
         return task
 
     def _get_default_housekeeper(self):

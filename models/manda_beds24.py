@@ -6,7 +6,7 @@ _logger = logging.getLogger(__name__)
 
 # =============================================================================
 # BEDS24 INTEGRATION - STUB
-# À activer quand le compte Beds24 est prêt
+# À activer avec un compte Beds24
 # Documentation API: https://beds24.com/api/v2
 # =============================================================================
 
@@ -33,7 +33,6 @@ class MandaBeds24(models.Model):
 
     # ------------------------------------------------------------------
     # ÉTAPE 1: Tester la connexion Beds24
-    # À activer quand le compte est prêt
     # ------------------------------------------------------------------
     def action_test_connection(self):
         """
@@ -41,7 +40,7 @@ class MandaBeds24(models.Model):
         Endpoint: GET /authentication/setup
         """
         _logger.info("BEDS24 STUB: Test connexion (à activer avec vrai compte)")
-        # TODO: Décommenter quand compte Beds24 prêt
+        # TODO: Décommenter si vous avez un compte Beds24
         # try:
         #     response = requests.get(
         #         f"{BEDS24_API_URL}/authentication/setup",
@@ -83,7 +82,7 @@ class MandaBeds24(models.Model):
                 }
             }
 
-        # TODO: Décommenter et adapter quand compte Beds24 prêt
+        # TODO: Décommenter et adapter avec un compte Beds24
         # try:
         #     response = requests.get(
         #         f"{BEDS24_API_URL}/bookings",
