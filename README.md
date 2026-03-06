@@ -174,7 +174,7 @@ La communication passe par un **proxy Raspberry Pi** via tunnel SSH pour contour
 ## 👨‍💻 Auteur
 
 **Angelbert FANKEP**  
-Bachelor Informatique Industrielle — Institut de technologie de Liège (2025)  
+Bachelor Informatique Industrielle — Institut de technologie de Liège (2026)  
 Développeur systèmes industriels & IoT
 
 - 🌐 [fankepa.com](https://fankepa.com)
