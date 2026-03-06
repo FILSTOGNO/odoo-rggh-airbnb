@@ -10,7 +10,7 @@ class UnifiConfig(models.Model):
     _description = 'Configuration UniFi Access'
 
     name = fields.Char(string='Nom', required=True)
-    api_url = fields.Char(string='URL API', default='https://172.18.......:8445') # IP VLAN MANDA-Porte et le port à utiliser est 12445 j'ai utilisé 8445 par ce que j'ai developpé un Proxy sur mon Raspi qui est l'intermédiaire qui relaie les communications entre le serveur odoo et le reseau local de l'entreprise et leurs communication ce passe par le port 8445
+    api_url = fields.Char(string='URL API', default='https://172.18.69.254:8445') # IP VLAN MANDA-Porte et le port à utiliser est 12445 j'ai utilisé 8445 par ce que j'ai developpé un Proxy sur mon Raspi qui est l'intermédiaire qui relaie les communications entre le serveur odoo et le reseau local de l'entreprise et leurs communication ce passe par le port 8445
     api_token = fields.Char(string='Token API')
     active = fields.Boolean(default=True)
 

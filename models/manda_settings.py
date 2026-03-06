@@ -9,9 +9,9 @@ class MandaSettings(models.Model):
 
     # UniFi Access
     unifi_api_token = fields.Char(string='Token API UniFi')
-    unifi_hub_ip = fields.Char(string='IP Gateway VLAN MANDA-Porte', default='172.18......')
-    unifi_switch_ip = fields.Char(string='IP Switch principal (USW-01)', default='172.30......')
-    unifi_switch2_ip = fields.Char(string='IP Switch secondaire (USW-02)', default='172.30......')
+    unifi_hub_ip = fields.Char(string='IP Gateway VLAN MANDA-Porte', default='172.18.244.254')
+    unifi_switch_ip = fields.Char(string='IP Switch principal (USW-01)', default='172.30.69.254')
+    unifi_switch2_ip = fields.Char(string='IP Switch secondaire (USW-02)', default='172.30.69.80')
 
     # Beds24
     beds24_api_key = fields.Char(string='Clé API Beds24')

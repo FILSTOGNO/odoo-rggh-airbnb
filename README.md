@@ -97,23 +97,36 @@ Ménage terminé
 ```
 airbnb_manda/
 ├── __manifest__.py              # Déclaration du module Odoo
+├── __init__.py
 ├── models/
+|   ├── __init__.py
 │   ├── manda_lock.py            # Serrures UniFi + API calls
 │   ├── manda_settings.py        # Configuration singleton
 │   ├── manda_housekeeping.py    # Tâches ménage + PIN temporaire
-│   └── manda_hotel_extend.py    # Extension hotel.booking + product.product
+│   ├── manda_beds24.py .py    # Extension hotel.booking + product.product
+|   ├── manda_lock.py 
+|   ├── manda_reservation.py
+|   ├── manda_room.py 
+|   ├── manda_settings.py 
+|   ├── unifi_config.py
+|   └──__pycache__ 
 ├── views/
-│   ├── manda_hotel_extend_views.xml   # Extension vues Hotel
+│   ├── manda_beds24_views.xml    # Extension vues beds24
 │   ├── manda_housekeeping_views.xml   # Kanban / List / Form ménage
 │   ├── manda_lock_views.xml           # Gestion serrures
 │   ├── manda_settings_views.xml       # Configuration
-│   └── manda_menu.xml                 # Menus MandaBar
+│   ├── manda_menu.xml                 # Menus MandaBar
+│   ├── manda_reservation_views.xml
+│   └── manda_room_views.xml
 ├── data/
+│   ├── mail_template_pin.xml 
 │   └── manda_cron.xml           # Cron auto-checkout 15min
 ├── security/
 │   └── ir.model.access.csv      # Droits d'accès
 └── controllers/
+│   ├── __init__.py
     └── main.py                  # Webhook endpoint
+     
 ```
 
 ---
@@ -133,14 +146,14 @@ odoo-bin -c odoo.conf -u airbnb_manda --stop-after-init
 
 ### Configuration post-installation
 
-1. **Menu Hotel → MandaBar → Configuration**
+1. **airbnb_manda → Configuration → Parametre**
    - Renseigner l'IP du hub UniFi
    - Ajouter le token API UniFi
    - Configurer l'Access Policy ID
 
-2. **Fiche chambre** (product.product)
-   - Assigner la serrure UniFi
-   - Définir la ménagère par défaut
+2. **airbnb_manda → Configuration → Serrure UniFi**
+   - ANom de la porte
+   - Renseigner ID Porte UniFi
 
 ---
 
