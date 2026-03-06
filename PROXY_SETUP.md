@@ -1,4 +1,4 @@
-# 🔒 MandaBar — Proxy UniFi Access
+# 🔒 Airbnb_Manda — Proxy UniFi Access
 
 > Documentation technique du proxy permettant à Odoo (VPS OVH) de communiquer  
 > avec le hub UniFi Access situé sur le réseau local de l'établissement.
