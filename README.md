@@ -1,6 +1,6 @@
 # 🔐 airbnb_manda — Module Odoo Gestion Accès UniFi
 
-> Module Odoo 19 développé pendant mon stage de fin d'études chez MandaBar (Liège, Belgique).  
+> Module Odoo 19 développé pendant mon stage de fin d'études chez MandaBar (Marche-en-Famene, Belgique).  
 > Gestion automatique des accès IoT via l'API UniFi Access Hub, intégré avec le système de réservation hôtelière.
 
 ---
